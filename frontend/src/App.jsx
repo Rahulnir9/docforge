@@ -29,7 +29,7 @@ export default function App() {
     formData.append("file", file)
     try {
       const res = await axios.post(
-        "https://docforge-api-zk0e.onrender.comgenerate",
+        "https://docforge-api-zk0e.onrender.com/generate",
         formData
       )
       if (res.data.total === 0) {
