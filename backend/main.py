@@ -18,13 +18,10 @@ def root():
     return {"message": "DocForge is running"}
 
 def detect_framework(code: str, filename: str) -> str:
-    # JS/TS files are always Express
     if filename.endswith(".js") or filename.endswith(".ts"):
         return "express"
-    # Python files — check for FastAPI
     if filename.endswith(".py"):
         return "fastapi"
-    # Fallback — sniff the content
     if "require('express')" in code or 'require("express")' in code:
         return "express"
     if "from fastapi" in code or "import fastapi" in code.lower():
